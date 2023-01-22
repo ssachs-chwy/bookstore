@@ -1,5 +1,6 @@
 package com.chewy.bookstore.services;
 
+import java.util.Collections;
 import com.chewy.bookstore.models.Book;
 
 public class MostExpensiveDecorator implements SuggestionDecorator {
@@ -7,6 +8,12 @@ public class MostExpensiveDecorator implements SuggestionDecorator {
 
     public List<Book> decorate(List<Book> suggestions, Book query, List<Book> allBooks)
     {
-        return suggestions.orderBy(b -> b.getPrice()).range(0, NumToSelect);
+        List<Book> answer = suggestions;
+
+        Collections.sort(answer, (b1, b2) -> {
+            return b2.getPrice() - b1.getPrice();
+        })
+
+        return answer.limit(NumToSelect);
     }
 }
