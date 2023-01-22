@@ -1,0 +1,5 @@
+- [ ] test api routes
+- [ ] prevent deleting author if the author has undeleted books in the system
+- [ ] change suggestion path variable to query variable
+- [ ] path all properties in PUT books
+- [ ] validate that author is valid on POST / PUT books

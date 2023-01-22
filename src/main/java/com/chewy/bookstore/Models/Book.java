@@ -13,7 +13,7 @@ public class Book {
 
     private long id;
     private String title;
-    private String author;
+    private long authorId;
     private String publisher;
     private int yearPublished;
     private int price;
@@ -51,13 +51,13 @@ public class Book {
         this.title = title;
     }
 
-    @Column(name = "author", nullable = false)
-    public String getAuthor() {
-        return author;
+    @Column(name = "authorId", nullable = false)
+    public long getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthorId(long authorId) {
+        this.authorId = authorId;
     }
 
     @Column(name = "publisher", nullable = false)
