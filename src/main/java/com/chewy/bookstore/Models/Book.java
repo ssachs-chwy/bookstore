@@ -18,10 +18,11 @@ public class Book {
     private int yearPublished;
     private int price;
     private boolean isFeatured;
+    private int coverPrettiness;
 
     public Book() {}
 
-    public Book(long id, String title, long authorId, String publisher, int yearPublished, int price, boolean isFeatured) {
+    public Book(long id, String title, long authorId, String publisher, int yearPublished, int price, boolean isFeatured, int coverPrettiness) {
         this.id = id;
         this.title = title;
         this.authorId = authorId;
@@ -29,6 +30,7 @@ public class Book {
         this.yearPublished = yearPublished;
         this.price = price;
         this.isFeatured = isFeatured;
+        this.coverPrettiness = coverPrettiness;
     }
 
 
@@ -94,5 +96,14 @@ public class Book {
 
     public void setIsFeatured(boolean isFeatured) {
         this.isFeatured = isFeatured;
+    }
+
+    @Column(name = "coverPrettiness", nullable = false)
+    public boolean getCoverPrettiness() {
+        return coverPrettiness;
+    }
+
+    public void setCoverPrettiness(boolean coverPrettiness) {
+        this.coverPrettiness = coverPrettiness;
     }
 }

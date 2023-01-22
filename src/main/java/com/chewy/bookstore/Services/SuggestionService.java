@@ -19,6 +19,7 @@ public class SuggestionService
         decorators = new ArrayList<SuggestionDecorator>();
         decorators.add(new AuthorDecorator());
         decorators.add(new FeaturedDecorator());
+        decorators.add(new PrettyCoverDecorator());
         decorators.add(new MostExpensiveDecorator());
     }
 
