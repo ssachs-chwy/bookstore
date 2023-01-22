@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SuggestionService
 {
     @Autowired

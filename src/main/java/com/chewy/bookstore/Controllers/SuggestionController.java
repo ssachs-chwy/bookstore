@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.services.SuggestionService;
 
-
 @RestController
 @RequestMapping("/api/v1")
-public class SuggestionsController {
+public class SuggestionController {
     @Autowired
     private SuggestionService svc;
 

@@ -44,7 +44,7 @@ public class Author {
     }
 
     @Column(name = "lastName", nullable = false)
-    public String getFirstName() {
+    public String getLastName() {
         return lastName;
     }
 
