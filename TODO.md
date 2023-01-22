@@ -5,3 +5,4 @@
 - [ ] validate that author is valid on POST / PUT books
 - [ ] inject NumToSelect
 - [ ] dependency inject decorators
+- [ ] strategy to differentiate online and in person shoppers

@@ -2,6 +2,8 @@ package com.chewy.bookstore.services;
 
 import java.util.List;
 import com.chewy.bookstore.models.Book;
+import com.chewy.bookstore.repositories.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SuggestionService
 {
@@ -11,7 +13,8 @@ public class SuggestionService
     private List<SuggestionDecorator> decorators;
 
     public SuggestionService() {
-        deocrators.add(new AuthorDecorator());
+        decorators = new ArrayList<SuggestionDecorator>();
+        decorators.add(new AuthorDecorator());
         decorators.add(new FeaturedDecorator());
         decorators.add(new MostExpensiveDecorator());
     }
@@ -24,7 +27,7 @@ public class SuggestionService
     }
 
     private List<Book> decorateSuggestions(Book query, List<Book> allBooks) {
-        List<Book> answer = new List<Book>();
+        List<Book> answer = new ArrayList<Book>();
 
         for (SuggestionDecorator decorator : decorators) {
             answer = decorator.decorate(answer, query, allBooks);

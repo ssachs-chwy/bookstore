@@ -49,7 +49,7 @@ public class AuthorController {
         Author author = authorRepository.findById(authorId).orElse(null);
 
         author.setFirstName(authorDetails.getFirstName());
-        author.setLastName(authorDetails.setLastName());
+        author.setLastName(authorDetails.getLastName());
 
         final Author updatedAuthor = authorRepository.save(author);
         return ResponseEntity.ok(updatedAuthor);

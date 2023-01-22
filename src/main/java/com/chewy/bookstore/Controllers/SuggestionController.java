@@ -19,7 +19,7 @@ public class SuggestionsController {
 
     @GetMapping("/suggestions/{bookId}")
     public List<Book> getSuggestions(@PathVariable(value = "bookId") Long bookId) {
-        return svc.getSuggestions();
+        return svc.getSuggestions(bookId);
     }
 
 }

@@ -21,10 +21,10 @@ public class Book {
 
     public Book() {}
 
-    public Book(long id, String title, String author, String publisher, int yearPublished, int price, boolean isFeatured) {
+    public Book(long id, String title, long authorId, String publisher, int yearPublished, int price, boolean isFeatured) {
         this.id = id;
         this.title = title;
-        this.author = author;
+        this.authorId = authorId;
         this.publisher = publisher;
         this.yearPublished = yearPublished;
         this.price = price;

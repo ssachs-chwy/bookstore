@@ -19,7 +19,7 @@ public class Author {
 
     public Author(long id, String firstName, String lastName) {
         this.id = id;
-        this.fristName = firstName;
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
