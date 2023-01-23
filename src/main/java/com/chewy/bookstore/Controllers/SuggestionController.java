@@ -11,12 +11,12 @@ import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.services.SuggestionService;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/suggestions")
 public class SuggestionController {
     @Autowired
     private SuggestionService svc;
 
-    @GetMapping("/suggestions/{bookId}")
+    @GetMapping("/{bookId}")
     public List<Book> getSuggestions(@PathVariable(value = "bookId") Long bookId) {
         return svc.getSuggestions(bookId);
     }

@@ -22,28 +22,28 @@ import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.repositories.BookRepository;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/books")
 public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    @GetMapping("/books")
+    @GetMapping("/")
     public List <Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
-    @GetMapping("/books/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity <Book> getBookById(@PathVariable(value = "id") Long bookId) {
         Book book = bookRepository.findById(bookId).orElse(null);
         return ResponseEntity.ok().body(book);
     }
 
-    @PostMapping("/books")
+    @PostMapping("/")
     public Book createBook(@RequestBody Book book) {
         return bookRepository.save(book);
     }
 
-    @PutMapping("/books/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity <Book> updateBook(@PathVariable(value = "id") Long bookId,
         @Valid @RequestBody Book bookDetails) {
         Book book = bookRepository.findById(bookId).orElse(null);
@@ -53,7 +53,7 @@ public class BookController {
         return ResponseEntity.ok(updatedBook);
     }
 
-    @DeleteMapping("/books/{id}")
+    @DeleteMapping("/{id}")
     public Map <String, Boolean> deleteBook(@PathVariable(value = "id") Long bookId) {
         Book book = bookRepository.findById(bookId).orElse(null);
 

@@ -11,7 +11,7 @@ public class PrettyCoverDecorator implements SuggestionDecorator {
 
         for (Book book : allBooks) {
             if (book.getCoverPrettiness() > query.getCoverPrettiness()) {
-                allBooks.add(book);
+                answer.add(book);
             }
         }
 

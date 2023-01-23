@@ -1,4 +1,4 @@
-package com.chewy.authorstore.controllers;
+package com.chewy.bookstore.controllers;
 
 import java.util.HashMap;
 
@@ -22,28 +22,28 @@ import com.chewy.bookstore.models.Author;
 import com.chewy.bookstore.repositories.AuthorRepository;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/authors")
 public class AuthorController {
     @Autowired
     private AuthorRepository authorRepository;
 
-    @GetMapping("/authors")
+    @GetMapping("/")
     public List<Author> getAllAuthors() {
         return authorRepository.findAll();
     }
 
-    @GetMapping("/authors/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Author> getAuthorById(@PathVariable(value = "id") Long authorId) {
         Author author = authorRepository.findById(authorId).orElse(null);
         return ResponseEntity.ok().body(author);
     }
 
-    @PostMapping("/authors")
+    @PostMapping("/")
     public Author createAuthor(@RequestBody Author author) {
         return authorRepository.save(author);
     }
 
-    @PutMapping("/authors/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Author> updateAuthor(@PathVariable(value = "id") Long authorId,
         @Valid @RequestBody Author authorDetails) {
         Author author = authorRepository.findById(authorId).orElse(null);
@@ -55,7 +55,7 @@ public class AuthorController {
         return ResponseEntity.ok(updatedAuthor);
     }
 
-    @DeleteMapping("/authors/{id}")
+    @DeleteMapping("/{id}")
     public Map <String, Boolean> deleteAuthor(@PathVariable(value = "id") Long authorId) {
         Author author = authorRepository.findById(authorId).orElse(null);
 
