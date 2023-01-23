@@ -15,12 +15,9 @@ public class SuggestionService
 
     private List<SuggestionDecorator> decorators;
 
-    public SuggestionService() {
-        decorators = new ArrayList<SuggestionDecorator>();
-        decorators.add(new AuthorDecorator());
-        decorators.add(new FeaturedDecorator());
-        decorators.add(new PrettyCoverDecorator());
-        decorators.add(new MostExpensiveDecorator());
+    @Autowired
+    public SuggestionService(ServiceDecoratorFactory factory) {
+        decorators = factory.getDecorators();
     }
 
     public List<Book> getSuggestions(long bookId)
