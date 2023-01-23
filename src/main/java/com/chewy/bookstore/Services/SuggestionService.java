@@ -25,7 +25,7 @@ public class SuggestionService
 
     public List<Book> getSuggestions(long bookId)
     {
-        Book query = bookRepository.findById(bookId);
+        Book query = bookRepository.findById(bookId).orElse(null);
         List<Book> allBooks = bookRepository.findAll();
         return decorateSuggestions(query, allBooks);
     }

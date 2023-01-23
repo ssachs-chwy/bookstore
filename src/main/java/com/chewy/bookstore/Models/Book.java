@@ -99,11 +99,11 @@ public class Book {
     }
 
     @Column(name = "coverPrettiness", nullable = false)
-    public boolean getCoverPrettiness() {
+    public int getCoverPrettiness() {
         return coverPrettiness;
     }
 
-    public void setCoverPrettiness(boolean coverPrettiness) {
+    public void setCoverPrettiness(int coverPrettiness) {
         this.coverPrettiness = coverPrettiness;
     }
 }

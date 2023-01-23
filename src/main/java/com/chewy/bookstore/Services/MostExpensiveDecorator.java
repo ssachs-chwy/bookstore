@@ -15,6 +15,6 @@ public class MostExpensiveDecorator implements SuggestionDecorator {
             return b2.getPrice() - b1.getPrice();
         });
 
-        return answer.limit(NumToSelect);
+        return answer.subList(0, NumToSelect);
     }
 }
