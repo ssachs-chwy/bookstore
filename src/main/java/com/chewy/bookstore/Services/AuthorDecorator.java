@@ -7,6 +7,8 @@ public class AuthorDecorator implements SuggestionDecorator {
     public List<Book> decorate(List<Book> suggestions, Book query, List<Book> allBooks)
     {
         for (Book book : allBooks) {
+            if (book.getId() == query.getId()) { continue; }
+            
             if (book.getAuthorId() == query.getAuthorId()) {
                 suggestions.add(book);
             }
