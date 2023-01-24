@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class SuggestionService
 {
-    @Autowired
     private BookRepository bookRepository;
 
     private List<SuggestionDecorator> decorators;
 
     @Autowired
-    public SuggestionService(ServiceDecoratorFactory factory) {
+    public SuggestionService(ServiceDecoratorFactory factory, BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
         decorators = factory.getDecorators();
     }
 

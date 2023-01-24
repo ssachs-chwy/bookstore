@@ -3,6 +3,8 @@ package com.chewy.bookstore.services;
 import java.util.List;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Service
 public class ServiceDecoratorFactory

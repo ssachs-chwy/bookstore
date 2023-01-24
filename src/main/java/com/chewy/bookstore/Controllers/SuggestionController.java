@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.services.SuggestionService;
+import com.chewy.bookstore.services.CurrentUserService;
 
 @RestController
 @RequestMapping("/api/v1/suggestions")
@@ -24,7 +25,7 @@ public class SuggestionController {
 
     @GetMapping("/{bookId}")
     public List<Book> getSuggestions(@PathVariable(value = "bookId") Long bookId) {
-        return svc.getSuggestions(bookId);
+        return suggestionSvc.getSuggestions(bookId);
     }
 
 }

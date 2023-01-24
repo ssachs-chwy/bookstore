@@ -1,6 +1,7 @@
 package com.chewy.bookstore.services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class CurrentUserService {

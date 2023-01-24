@@ -4,5 +4,6 @@
 - [ ] path all properties in PUT books
 - [ ] validate that author is valid on POST / PUT books
 - [ ] inject NumToSelect
-- [ ] dependency inject decorators
-- [ ] strategy to differentiate online and in person shoppers
+- [ ] add swagger
+- [ ] populate is in store
+- [ ] fix requestscope
