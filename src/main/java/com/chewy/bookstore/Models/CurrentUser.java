@@ -1,4 +1,4 @@
-package com.chewy.bookstore.services;
+package com.chewy.bookstore.models;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequestScope
-public class CurrentUserService {
+public class CurrentUser {
     private boolean isInStore;
 
     public boolean getIsInStore() {

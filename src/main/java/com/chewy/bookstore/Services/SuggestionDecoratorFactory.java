@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.stereotype.Component;
+import com.chewy.bookstore.models.CurrentUser;
 
 @Component
 @RequestScope
@@ -14,11 +15,11 @@ public class SuggestionDecoratorFactory
 {
     public List<SuggestionDecorator> getDecorators()
     {
-        CurrentUserService svc = getCurrentUserService1();
+        CurrentUser usr = getCurrentUser();
         List<SuggestionDecorator> decorators = new ArrayList<SuggestionDecorator>();
         decorators.add(new AuthorDecorator());
 
-        if (svc.getIsInStore()) {
+        if (usr.getIsInStore()) {
             decorators.add(new PrettyCoverDecorator());
         }
         else {
@@ -30,6 +31,6 @@ public class SuggestionDecoratorFactory
     }
 
     @Lookup
-    protected CurrentUserService getCurrentUserService1() { return null; }
+    protected CurrentUser getCurrentUser() { return null; }
 
 }

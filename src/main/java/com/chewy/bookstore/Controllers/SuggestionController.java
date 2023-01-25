@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.services.SuggestionService;
-import com.chewy.bookstore.services.CurrentUserService;
+import com.chewy.bookstore.models.CurrentUser;
 import java.util.Map;
 import org.springframework.web.bind.annotation.RequestHeader;
 
@@ -24,18 +24,18 @@ public class SuggestionController {
 
     @GetMapping("/{bookId}")
     public List<Book> getSuggestions(@RequestHeader Map<String, String> headers, @PathVariable(value = "bookId") Long bookId) {
-        CurrentUserService currentUserSvc = getCurrentUserService1();
+        CurrentUser currentUser = getCurrentUser();
         if (headers.containsKey(HEADER_IS_IN_STORE)) {
-            currentUserSvc.setIsInStore(true);
+            currentUser.setIsInStore(true);
         }
         else {
-            currentUserSvc.setIsInStore(false);
+            currentUser.setIsInStore(false);
         }
 
         return suggestionSvc.getSuggestions(bookId);
     }
 
     @Lookup
-    protected CurrentUserService getCurrentUserService1() { return null; }
+    protected CurrentUser getCurrentUser() { return null; }
 
 }
