@@ -15,16 +15,10 @@ public class SuggestionDecoratorFactory
 {
     public List<SuggestionDecorator> getDecorators()
     {
-        CurrentUser usr = getCurrentUser();
         List<SuggestionDecorator> decorators = new ArrayList<SuggestionDecorator>();
         decorators.add(new AuthorDecorator());
 
-        if (usr.getIsInStore()) {
-            decorators.add(new PrettyCoverDecorator());
-        }
-        else {
-            decorators.add(new FeaturedDecorator());
-        }
+        decorators.addAll(getStrategy().getCurrentUserSuggestionDecorators());
 
         decorators.add(new MostExpensiveDecorator());
         return decorators;
@@ -33,4 +27,14 @@ public class SuggestionDecoratorFactory
     @Lookup
     protected CurrentUser getCurrentUser() { return null; }
 
+    protected CurrentUserSuggestionStrategy getStrategy()
+    {
+        CurrentUser usr = getCurrentUser();
+        if (usr.getIsInStore()) {
+            return new IsInStoreSuggestionDecorator();
+        }
+        else {
+            return new NotInStoreSuggestionDecorator();
+        }
+    }
 }
