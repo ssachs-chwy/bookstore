@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.annotation.RequestScope;
 
 @Component
+@RequestScope
 public class CurrentUserService {
     private boolean isInStore;
 
