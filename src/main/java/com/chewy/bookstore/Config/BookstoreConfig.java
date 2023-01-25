@@ -6,13 +6,13 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.chewy.bookstore.services.CurrentUserService;
 
 
-@Configuration
+//@Configuration
 public class BookstoreConfig {
-/*
-    @Bean
-    @RequestScope
+
+//    @Bean
+//    @RequestScope
     public CurrentUserService getCurrentUserService() {
         return new CurrentUserService();
     }
-*/
+
 }
