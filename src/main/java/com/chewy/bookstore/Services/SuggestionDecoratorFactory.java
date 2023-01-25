@@ -25,16 +25,6 @@ public class SuggestionDecoratorFactory
     }
 
     @Lookup
-    protected CurrentUser getCurrentUser() { return null; }
+    protected CurrentUserSuggestionStrategy getStrategy() { return null; }
 
-    protected CurrentUserSuggestionStrategy getStrategy()
-    {
-        CurrentUser usr = getCurrentUser();
-        if (usr.getIsInStore()) {
-            return new IsInStoreSuggestionDecorator();
-        }
-        else {
-            return new NotInStoreSuggestionDecorator();
-        }
-    }
 }
