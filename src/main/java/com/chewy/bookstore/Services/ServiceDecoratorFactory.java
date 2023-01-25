@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequestScope
-public class ServiceDecoratorFactory
+public class SuggestionDecoratorFactory
 {
     public List<SuggestionDecorator> getDecorators()
     {

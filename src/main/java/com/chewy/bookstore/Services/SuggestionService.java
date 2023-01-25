@@ -36,10 +36,10 @@ public class SuggestionService
     }
 
     private List<SuggestionDecorator> getDecorators() {
-        ServiceDecoratorFactory factory = getFactory();
+        SuggestionDecoratorFactory factory = getFactory();
         return factory.getDecorators();
     }
 
     @Lookup
-    protected ServiceDecoratorFactory getFactory() { return null; }
+    protected SuggestionDecoratorFactory getFactory() { return null; }
 }
