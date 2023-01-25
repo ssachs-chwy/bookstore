@@ -1,9 +1,9 @@
 package com.chewy.bookstore.services;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.stereotype.Component;
 
 @Component
 @RequestScope

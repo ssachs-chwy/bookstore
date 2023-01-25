@@ -5,5 +5,6 @@
 - [ ] validate that author is valid on POST / PUT books
 - [ ] inject NumToSelect
 - [ ] add swagger
-- [ ] populate is in store
 - [ ] fix requestscope
+- [ ] refactpr servicedecoratorfactory to suggestiondecoratorfactory
+- [ ] move currentuserservice to model, refactor as currentuser

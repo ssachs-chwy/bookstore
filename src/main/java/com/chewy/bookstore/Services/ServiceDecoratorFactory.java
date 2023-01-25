@@ -4,21 +4,17 @@ import java.util.List;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.stereotype.Component;
 
-
-@Service
+@Component
+@RequestScope
 public class ServiceDecoratorFactory
 {
-    private CurrentUserService svc;
-
-    @Autowired
-    public ServiceDecoratorFactory(CurrentUserService svc)
-    {
-        this.svc = svc;
-    }
-
     public List<SuggestionDecorator> getDecorators()
     {
+        CurrentUserService svc = getCurrentUserService1();
         List<SuggestionDecorator> decorators = new ArrayList<SuggestionDecorator>();
         decorators.add(new AuthorDecorator());
 
@@ -32,4 +28,8 @@ public class ServiceDecoratorFactory
         decorators.add(new MostExpensiveDecorator());
         return decorators;
     }
+
+    @Lookup
+    protected CurrentUserService getCurrentUserService1() { return null; }
+
 }

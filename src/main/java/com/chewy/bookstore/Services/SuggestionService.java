@@ -6,18 +6,16 @@ import com.chewy.bookstore.models.Book;
 import com.chewy.bookstore.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Lookup;
 
 @Service
 public class SuggestionService
 {
     private BookRepository bookRepository;
 
-    private List<SuggestionDecorator> decorators;
-
     @Autowired
-    public SuggestionService(ServiceDecoratorFactory factory, BookRepository bookRepository) {
+    public SuggestionService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
-        decorators = factory.getDecorators();
     }
 
     public List<Book> getSuggestions(long bookId)
@@ -30,10 +28,18 @@ public class SuggestionService
     private List<Book> decorateSuggestions(Book query, List<Book> allBooks) {
         List<Book> answer = new ArrayList<Book>();
 
-        for (SuggestionDecorator decorator : decorators) {
+        for (SuggestionDecorator decorator : getDecorators()) {
             answer = decorator.decorate(answer, query, allBooks);
         }
 
         return answer;
     }
+
+    private List<SuggestionDecorator> getDecorators() {
+        ServiceDecoratorFactory factory = getFactory();
+        return factory.getDecorators();
+    }
+
+    @Lookup
+    protected ServiceDecoratorFactory getFactory() { return null; }
 }
