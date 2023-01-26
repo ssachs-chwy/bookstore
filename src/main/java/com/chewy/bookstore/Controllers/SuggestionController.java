@@ -8,31 +8,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.chewy.bookstore.models.Book;
+import com.chewy.bookstore.models.SuggestionSearch;
 import com.chewy.bookstore.services.SuggestionService;
 import com.chewy.bookstore.models.CurrentUser;
+import com.chewy.bookstore.models.Book;
 import java.util.Map;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @RestController
-@RequestMapping("/api/v1/suggestions")
+@RequestMapping("/api/v1/suggestion-searches")
 public class SuggestionController {
     @Autowired
     private SuggestionService suggestionSvc;
 
-    private final String HEADER_IS_IN_STORE = "x-chewy-is-in-store";
-
-    @GetMapping("/{bookId}")
-    public List<Book> getSuggestions(@RequestHeader Map<String, String> headers, @PathVariable(value = "bookId") Long bookId) {
+    @PostMapping("/")
+    public List<Book> getSuggestions(@RequestBody SuggestionSearch search) {
         CurrentUser currentUser = getCurrentUser();
-        if (headers.containsKey(HEADER_IS_IN_STORE)) {
-            currentUser.setIsInStore(true);
-        }
-        else {
-            currentUser.setIsInStore(false);
-        }
+        currentUser.setIsInStore(search.isInStore);
 
-        return suggestionSvc.getSuggestions(bookId);
+        return suggestionSvc.getSuggestions(search.bookId);
     }
 
     @Lookup
