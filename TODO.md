@@ -4,4 +4,3 @@
 - [ ] path all properties in PUT books
 - [ ] validate that author is valid on POST / PUT books
 - [ ] inject NumToSelect
-- [ ] add swagger

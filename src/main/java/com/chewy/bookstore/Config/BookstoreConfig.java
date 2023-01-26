@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.web.context.annotation.RequestScope;
 import com.chewy.bookstore.models.CurrentUser;
 import com.chewy.bookstore.services.*;
-
+import io.swagger.v3.oas.models.OpenAPI;
 
 @Configuration
 public class BookstoreConfig
@@ -29,5 +29,10 @@ public class BookstoreConfig
         else {
             return new NotInStoreSuggestionDecorator();
         }
+    }
+
+    @Bean
+    public OpenAPI springShopOpenAPI() {
+        return new OpenAPI();
     }
 }
