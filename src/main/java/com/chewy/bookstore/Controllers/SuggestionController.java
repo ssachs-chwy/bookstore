@@ -21,8 +21,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RestController
 @RequestMapping("/api/v1/suggestion-searches")
 public class SuggestionController {
-    @Autowired
     private SuggestionService suggestionSvc;
+
+    @Autowired
+    public SuggestionController(SuggestionService suggestionSvc) {
+        this.suggestionSvc = suggestionSvc;
+    }
 
     @PostMapping("/")
     public List<Book> getSuggestions(@RequestBody SuggestionSearch search) {

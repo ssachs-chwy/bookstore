@@ -32,7 +32,7 @@ public class BookstoreConfig
     }
 
     @Bean
-    public OpenAPI springShopOpenAPI() {
+    public OpenAPI getOpenAPI() {
         return new OpenAPI();
     }
 }
