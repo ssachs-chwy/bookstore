@@ -7,3 +7,5 @@ This repository is a learning tool to illustrate some of the Spring Boot feature
 Build: `docker build . -t bookstore`
 
 Run: `docker run -p 8080:8080 bookstore`
+
+API docs available at `localhost:8080/swagger-ui/`
